@@ -1,0 +1,2 @@
+"use strict";(self["webpackChunksoap_group_buying"]=self["webpackChunksoap_group_buying"]||[]).push([[443],{782:function(n,u,a){a.r(u),a.d(u,{default:function(){return b}});var r=a(252);const s={class:"about"},t=(0,r._)("h1",null,"This is an about page",-1),e=[t];function o(n,u){return(0,r.wg)(),(0,r.iD)("div",s,e)}var i=a(744);const c={},p=(0,i.Z)(c,[["render",o]]);var b=p}}]);
+//# sourceMappingURL=about.c54eec0c.js.map
