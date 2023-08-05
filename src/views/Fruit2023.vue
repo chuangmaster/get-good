@@ -1,29 +1,15 @@
 <template>
   <div id="app" class="mt-5">
     <div class="container">
-      <h1>2023 平安皂預購單 by Get Good</h1>
       <div class="col-12">
-        <div>
-          <p>
-            據說端午節當天午時（上午11點至下午1點）所取的水，是一年之中陽氣最盛、能量最強的天然水，具多重功效且久存不壞。<br />
-            採午時能量水入皂清潔身體及保養，能趨吉避凶、去晦氣、招好運、正能量，讓你平安、好運旺旺一整年😘🌟🌟🌟<br /><br /><br />
-            ✿ 配方油品：<br />
-            橄欖油、棕櫚核仁油、米糠油、甜杏仁油、乳油木果脂、棕櫚油、椰子油
-            <br /><br /><br />
-            ✿其他成分：<br />
-            平安粉(抹草、芙蓉、香茅、艾草)、NaOH、複方精油，及午時水。<br /><br /><br />
-            ✿ 適用對象： <br />
-            大家都適合啦:)<br />
-            若為敏弱肌膚，請測試過後再使用，如使用後不適，請立即停用。
-            <br /><br /><br />
-
-            <span style="color: red">↓↓↓　非現貨！請注意以下出貨資訊　↓↓↓</span>
-            ✿預訂&出貨時間： <br />
-            預購時間：即日起 ~ 2023/06/30 <br />
-            結帳時間：2023/07/24 依訂單時間陸續通知下單<br />
-            出貨時間：2023/08/10陸續出貨 <br /><br /><br />
-          </p>
-        </div>
+        <img src="./../assets/2023/header01.png" />
+        <img src="./../assets/2023/header02.png" />
+        <img src="./../assets/2023/intro01.png" />
+        <img src="./../assets/2023/intro02.png" />
+        <img src="./../assets/2023/intro03.png" />
+        <img src="./../assets/2023/intro04.png" />
+        <img src="./../assets/2023/intro05.png" />
+        <img src="./../assets/2023/intro06.png" />
       </div>
       <div class="col-12">
         <form action="#">
@@ -192,26 +178,6 @@
           </div>
         </form>
       </div>
-      <div class="col-12">
-        ✿保存時間：<br />
-        熟成後約18個月 <br /><br />
-        ✿出貨方式：
-        <ol>
-          <li>統一以7-11賣貨便出貨-運費$35 (貨到付款)</li>
-          <li>歡迎面交(台北捷運站藍線、橘線大站為主)</li>
-        </ol>
-
-        ✿其他補充
-        <ol>
-          <li>植物粉入皂，會因時間變長而顏色變淡</li>
-          <li>
-            添加一定比例之精油，會因晾皂期的經過跟著水份蒸發，香味會自然變淡。
-          </li>
-          <li>
-            晾皂時間45天以上，熟成退鹼過後的手工肥皂，酸鹼值介於弱鹼性時，對肌膚溫和無負擔；手工皂因為含有「甘油」，因此洗起來雙手感覺非常溫和不乾澀，相反地洗後也能滋潤肌膚。
-          </li>
-        </ol>
-      </div>
     </div>
   </div>
 </template>
@@ -272,6 +238,22 @@ export default {
         demand: 1,
       },
       products: [
+        {
+          id:0,
+          name: '精選',
+          productSpec:[
+            {
+              name:'精選',
+              description:'5台斤',
+              price: 700
+            },
+            {
+              name:'精選',
+              description:'10台斤',
+              price: 1200
+            },
+          ]
+        },
         {
           id: 1,
           category: "A",
