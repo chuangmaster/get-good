@@ -2,8 +2,9 @@
   <!-- <nav>
     <router-link to="/">Home</router-link> |
   </nav> -->
-  <router-view/>
+  <router-view />
 </template>
+
 <style>
 body {
   background-color: #f0ebf8;
@@ -22,5 +23,4 @@ body {
   background-color: #fff;
   border-radius: 8px;
 }
-
 </style>
