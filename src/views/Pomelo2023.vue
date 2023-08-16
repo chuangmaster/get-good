@@ -40,11 +40,7 @@
           </div>
           <div class="mb-3">
             <div class="row">
-              <div class="col-lg-3 col-md-6 mb-3">
-                <div class="card" style="width: 18rem">
-                  <shopping-item v-for="(item, index) in products" :key="index" :shoppingItem="item"></shopping-item>
-                </div>
-              </div>
+                <shopping-item v-for="(item, index) in products" :key="index" :shoppingItem="item"></shopping-item>
             </div>
           </div>
           <div class="mb-3">
@@ -81,7 +77,7 @@ export default {
         {
           id: 0,
           name: "精選",
-          description: "123",
+          description: "精選描述文字(product)",
           image: 'https://lh4.googleusercontent.com/nm8Gbi8t1jVCKaGvja-r7OFWRQjuatmRrSnLOVIXI96Ll5Sz_wJucIjUsNT7h-zzXyDMHVVkidbyMduzgj_3RyJQJZm3TfWASOUuDp5C0oABUWlqxCrEFAIg9H4m5wPpiQ=w739',
           productSpec: [
             {
@@ -101,7 +97,7 @@ export default {
         {
           id: 1,
           name: "特選",
-          description: "",
+          description: "特選描述文字(product)",
           image: 'https://lh4.googleusercontent.com/nm8Gbi8t1jVCKaGvja-r7OFWRQjuatmRrSnLOVIXI96Ll5Sz_wJucIjUsNT7h-zzXyDMHVVkidbyMduzgj_3RyJQJZm3TfWASOUuDp5C0oABUWlqxCrEFAIg9H4m5wPpiQ=w739',
           productSpec: [
             {
@@ -121,7 +117,7 @@ export default {
         {
           id: 2,
           name: "優選",
-          description: "",
+          description: "優選描述文字(product)",
           image: 'https://lh4.googleusercontent.com/nm8Gbi8t1jVCKaGvja-r7OFWRQjuatmRrSnLOVIXI96Ll5Sz_wJucIjUsNT7h-zzXyDMHVVkidbyMduzgj_3RyJQJZm3TfWASOUuDp5C0oABUWlqxCrEFAIg9H4m5wPpiQ=w739',
           productSpec: [
             {

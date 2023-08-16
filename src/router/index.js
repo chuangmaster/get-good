@@ -1,21 +1,14 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
-import FruitView from '../views/Fruit2023.vue'
-
-
+import { createRouter, createWebHistory } from 'vue-router'
+import HomeView from '../views/SoapView.vue'
+import PomeloView from '../views/Pomelo2023.vue'
 const routes = [
   {
-    path: '/',
+    path: '/get-good',
     name: 'home',
     component: HomeView
   },
   {
-    path: '/yourlife_pomelo',
-    name: 'yourlife_pomelo',
-    component: FruitView
-  },
-  {
-    path: '/about',
+    path: '/get-good/about',
     name: 'about',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
@@ -23,11 +16,16 @@ const routes = [
     component: function () {
       return import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
     }
+  },
+  {
+    path: '/get-good/pomelo2023',
+    name: 'pomelo',
+    component: PomeloView
   }
 ]
 
 const router = createRouter({
-  history: createWebHashHistory(),
+  history: createWebHistory(process.env.BASE_URL),
   routes
 })
 
