@@ -11,18 +11,18 @@
           aria-label="Default select example"
           v-model="selectedSpecId"
         >
-          <option selected value="0">請選擇方案</option>
+          <option selected value="-1">請選擇方案</option>
           <option v-for="item in shoppingItem.productSpec" :value="item.specId">
             {{ item.name }} - {{ item.description }}
           </option>
-          <label>數量</label>
-          <input type="number" class="form-control" v-model="quantity" />
         </select>
+        <label>數量</label>
+        <input type="number" class="form-control" v-model="quantity" />
       </div>
       <div class="card-body text-center">
-        <button class="btn btn-outline-success m-3" @click="addToCart">
+        <div class="btn btn-outline-success m-3" @click="addToCart">
           加入購物車
-        </button>
+        </div>
       </div>
     </div>
   </div>
@@ -40,9 +40,9 @@ export default {
     selectSpecNameTag() {
       let str = "";
       if (this.selectCategoryPrice > 0) {
-        str = this.name;
+        str = this.shoppingItem.name;
       } else {
-        str = "";
+        str = this.shoppingItem.name;
       }
       return str;
     },
@@ -63,12 +63,15 @@ export default {
     },
   },
   methods: {
-    addToCart(productSpecId) {
-      this.$store.commit("addToCart", {
-        productId: shoppingItem.id,
-        productSpecId: productSpecId,
-        amount: quantity,
-      });
+    addToCart() {
+
+      const item = {
+        productId: this.shoppingItem.id,
+        productSpecId: this.selectedSpecId,
+        amount: this.quantity,
+      };
+      console.log(item);
+      this.$store.commit("addToCart", item);
     },
   },
 };

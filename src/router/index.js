@@ -3,12 +3,12 @@ import HomeView from '../views/SoapView.vue'
 import PomeloView from '../views/Pomelo2023.vue'
 const routes = [
   {
-    path: '/get-good',
+    path: '/',
     name: 'home',
     component: HomeView
   },
   {
-    path: '/get-good/about',
+    path: '/about',
     name: 'about',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
@@ -18,7 +18,7 @@ const routes = [
     }
   },
   {
-    path: '/get-good/pomelo2023',
+    path: '/pomelo2023',
     name: 'pomelo',
     component: PomeloView
   }

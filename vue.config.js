@@ -1,3 +1,3 @@
-module.exports={
-    publicPath: '/get-good'
-}
+module.exports = {
+  publicPath: "/get-good",
+};
