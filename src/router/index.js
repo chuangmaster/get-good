@@ -4,18 +4,19 @@ import PomeloView from '../views/Pomelo2023.vue'
 const routes = [
   {
     path: '/',
+    redirect: { name: 'home' }
+  },
+  {
+    path: '/',
     name: 'home',
     component: HomeView
   },
   {
     path: '/about',
-    name: 'about',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: function () {
-      return import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
-    }
+    redirect: { name: 'about' }
   },
   {
     path: '/pomelo2023',
@@ -26,6 +27,13 @@ const routes = [
     path: '/get-good/pomelo2023',
     name: 'pomelo-github',
     component: PomeloView
+  },
+  {
+    path: '/get-good/about',
+    name: 'about',
+    component: function () {
+      return import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
+    }
   }
 ]
 
