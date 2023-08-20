@@ -2,14 +2,14 @@
   <div id="app" class="mt-5">
     <div class="container">
       <div class="col-12">
-        <img src="./../assets/2023/header01.png" />
-        <img src="./../assets/2023/header02.png" />
-        <img src="./../assets/2023/intro01.png" />
-        <img src="./../assets/2023/intro02.png" />
-        <img src="./../assets/2023/intro03.png" />
-        <img src="./../assets/2023/intro04.png" />
-        <img src="./../assets/2023/intro05.png" />
-        <img src="./../assets/2023/intro06.png" />
+        <img class="img-fluid" src="./../assets/2023/header01.png" />
+        <img class="img-fluid" src="./../assets/2023/header02.png" />
+        <img class="img-fluid" src="./../assets/2023/intro01.png" />
+        <img class="img-fluid" src="./../assets/2023/intro02.png" />
+        <img class="img-fluid" src="./../assets/2023/intro03.png" />
+        <img class="img-fluid" src="./../assets/2023/intro04.png" />
+        <img class="img-fluid" src="./../assets/2023/intro05.png" />
+        <img class="img-fluid" src="./../assets/2023/intro06.png" />
       </div>
       <div class="col-12">
         <form action="#">
@@ -40,9 +40,10 @@
           </div>
           <div class="mb-3">
             <div class="row">
-                <shopping-item v-for="(item, index) in products" :key="index" :shoppingItem="item"></shopping-item>
+              <shopping-item v-for="(item, index) in products" :key="index" :shoppingItem="item"></shopping-item>
             </div>
           </div>
+              <shopping-cart></shopping-cart>
           <div class="mb-3">
             <h3 class="mb-3">小計 : {{ total }}</h3>
             <button type="submit" class="btn btn-success align-end" @click="submit">
@@ -59,9 +60,11 @@
 // @ is an alias to /src
 import axios from "axios";
 import shoppingItem from '../components/ShoppingItem.vue'
+import shoppingCart from '../components/ShoppingCart.vue'
+
 export default {
   name: "HomeView",
-  components: { shoppingItem },
+  components: { shoppingItem, shoppingCart },
   data() {
     return {
       shoppingcart: {
@@ -69,9 +72,6 @@ export default {
         phone: "",
         instagram: "",
         line: "",
-        products: [
-
-        ],
       },
       products: [
         {
@@ -211,13 +211,13 @@ export default {
     },
     total() {
       let total = 0;
-      this.shoppingcart.products.forEach((x) => {
-        if (x.id == this.p1_selected) {
-          total += x.amount * x.price;
-        } else if (x != "0" && x != "1" && x != "2" && x != "3") {
-          total += x.amount * x.price;
-        }
-      });
+      // this.shoppingcart.products.forEach((x) => {
+      //   if (x.id == this.p1_selected) {
+      //     total += x.amount * x.price;
+      //   } else if (x != "0" && x != "1" && x != "2" && x != "3") {
+      //     total += x.amount * x.price;
+      //   }
+      // });
       return total;
     },
   },

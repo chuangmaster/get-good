@@ -55,6 +55,13 @@ export default {
       }
       return str;
     },
+    selectCategoryDescripotionTag() {
+      console.log(this.selectedSpecId);
+      const spec = this.shoppingItem.productSpec.find(
+        (x) => x.specId === this.selectedSpecId
+      );
+      return spec ? `${spec.name}-${spec.description}` : "";
+    },
     selectCategoryPrice() {
       const spec = this.shoppingItem.productSpec.find(
         (x) => x.specId === this.selectedSpecId
@@ -64,13 +71,14 @@ export default {
   },
   methods: {
     addToCart() {
-
+      if (this.selectedSpecId=== -1) return;
       const item = {
         productId: this.shoppingItem.id,
         productSpecId: this.selectedSpecId,
         amount: this.quantity,
+        title: this.selectCategoryDescripotionTag,
+        price: this.selectCategoryPrice,
       };
-      console.log(item);
       this.$store.commit("addToCart", item);
     },
   },
