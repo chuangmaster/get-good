@@ -21,6 +21,11 @@ const routes = [
     path: '/pomelo2023',
     name: 'pomelo',
     component: PomeloView
+  },
+  {
+    path: '/get-good/pomelo2023',
+    name: 'pomelo',
+    component: PomeloView
   }
 ]
 
