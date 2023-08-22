@@ -13,9 +13,9 @@
 </template>
 
 <style>
-body {
+/* body {
   background-color: #f0ebf8;
-}
+} */
 /* .top-dec {
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
