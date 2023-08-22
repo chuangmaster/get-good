@@ -1,7 +1,14 @@
 <template>
-  <!-- <nav>
-    <router-link to="/get-good">Home</router-link> |
-  </nav> -->
+  <nav class="nav nav-tabs">
+    <li class="nav-item">
+      <router-link class="nav-link" :class="activeClass('home')" to="/">平安皂</router-link>
+    </li>
+    <li class="nav-item">
+      <router-link class="nav-link" :class="activeClass('pomelo-github')" to="/get-good/pomelo2023"
+        >柚子預購</router-link
+      >
+    </li>
+  </nav>
   <router-view />
 </template>
 
@@ -24,3 +31,19 @@ body {
   border-radius: 8px;
 }
 </style>
+<script>
+
+export default {
+
+  methods: {
+    activeClass(...names){
+      for (let name of names) {
+    		if (name == this.$route.name)
+        {
+    			return 'active';
+        }
+      }
+    }
+  },
+};
+</script>
