@@ -10,6 +10,7 @@
         <img class="img-fluid" src="./../assets/2023/intro04.png" />
         <img class="img-fluid" src="./../assets/2023/intro05.png" />
         <img class="img-fluid" src="./../assets/2023/intro06.png" />
+
       </div>
       <div class="col-12">
         <form action="#">
@@ -81,7 +82,7 @@ export default {
           id: 0,
           name: "精選",
           description: "精選描述文字(product)",
-          image: 'https://lh4.googleusercontent.com/nm8Gbi8t1jVCKaGvja-r7OFWRQjuatmRrSnLOVIXI96Ll5Sz_wJucIjUsNT7h-zzXyDMHVVkidbyMduzgj_3RyJQJZm3TfWASOUuDp5C0oABUWlqxCrEFAIg9H4m5wPpiQ=w739',
+          image: require('./../assets/2023/p1-item.png'),
           productSpec: [
             {
               specId: 0,
@@ -101,7 +102,7 @@ export default {
           id: 1,
           name: "特選",
           description: "特選描述文字(product)",
-          image: 'https://lh4.googleusercontent.com/nm8Gbi8t1jVCKaGvja-r7OFWRQjuatmRrSnLOVIXI96Ll5Sz_wJucIjUsNT7h-zzXyDMHVVkidbyMduzgj_3RyJQJZm3TfWASOUuDp5C0oABUWlqxCrEFAIg9H4m5wPpiQ=w739',
+          image: require('./../assets/2023/p2-item.png'),
           productSpec: [
             {
               specId: 2,
@@ -121,7 +122,7 @@ export default {
           id: 2,
           name: "優選",
           description: "優選描述文字(product)",
-          image: 'https://lh4.googleusercontent.com/nm8Gbi8t1jVCKaGvja-r7OFWRQjuatmRrSnLOVIXI96Ll5Sz_wJucIjUsNT7h-zzXyDMHVVkidbyMduzgj_3RyJQJZm3TfWASOUuDp5C0oABUWlqxCrEFAIg9H4m5wPpiQ=w739',
+          image: require('./../assets/2023/p3-item.png'),
           productSpec: [
             {
               specId: 4,
