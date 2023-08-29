@@ -44,12 +44,13 @@
             </div>
           </div>
               <shopping-cart></shopping-cart>
-          <div class="mb-3">
-            <h3 class="mb-3">小計 : {{ total }}</h3>
+          <div class="m-3">
             <button type="submit" class="btn btn-success align-end" @click="submit">
               確認預購
             </button>
           </div>
+
+          <cartListLightBox :lightBoxItem="lightBoxItem"></cartListLightBox>
         </form>
       </div>
     </div>
@@ -61,10 +62,12 @@
 import axios from "axios";
 import shoppingItem from '../components/ShoppingItem.vue'
 import shoppingCart from '../components/ShoppingCart.vue'
+import cartListLightBox from '../components/CartListLightBox.vue'
+import { mapGetters } from "vuex";
 
 export default {
   name: "HomeView",
-  components: { shoppingItem, shoppingCart },
+  components: { shoppingItem, shoppingCart, cartListLightBox },
   data() {
     return {
       shoppingcart: {
@@ -206,20 +209,7 @@ export default {
     }
   },
   computed: {
-    name() {
-      return this.$store.state.name;
-    },
-    total() {
-      let total = 0;
-      // this.shoppingcart.products.forEach((x) => {
-      //   if (x.id == this.p1_selected) {
-      //     total += x.amount * x.price;
-      //   } else if (x != "0" && x != "1" && x != "2" && x != "3") {
-      //     total += x.amount * x.price;
-      //   }
-      // });
-      return total;
-    },
+    ...mapGetters(["lightBoxItem"])
   },
 };
 </script>

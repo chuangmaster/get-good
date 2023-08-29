@@ -17,7 +17,7 @@
           </option>
         </select>
         <label>數量</label>
-        <input type="number" class="form-control" v-model="quantity" />
+        <input type="number" class="form-control" v-model="quantity" min="1" />
       </div>
       <div class="card-body text-center">
         <div class="btn btn-outline-success m-3" @click="addToCart">
@@ -56,7 +56,6 @@ export default {
       return str;
     },
     selectCategoryDescripotionTag() {
-      console.log(this.selectedSpecId);
       const spec = this.shoppingItem.productSpec.find(
         (x) => x.specId === this.selectedSpecId
       );

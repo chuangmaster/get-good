@@ -6,11 +6,15 @@
     <div class="card-body">
       <ul class="list-group">
         <ul class="list-group list-group-flush">
-          <template v-if="shoppingCart.length>0">
+          <template v-if="shoppingCart.length > 0">
             <li
               v-for="(item, index) in shoppingCart"
-              class="list-group-item d-flex justify-content-between align-items-center"
+              class="list-group-item d-flex justify-content-between align-items-center li-pointer"
               :key="index"
+              @click="setLightBoxItem(item)"
+              data-bs-toggle="modal"
+              data-bs-target="#light-box"
+              data-bs-whatever="@mdo"
             >
               {{ item.title }} ${{ item.price }}
               <span class="badge bg-primary rounded-pill">{{
@@ -18,7 +22,7 @@
               }}</span>
             </li>
           </template>
-          <template v-if="shoppingCart.length<=0">
+          <template v-if="shoppingCart.length <= 0">
             <li
               class="list-group-item d-flex justify-content-between align-items-center"
             >
@@ -28,21 +32,32 @@
         </ul>
       </ul>
     </div>
-    <div class="card-footer">
-      商品總計:
-    </div>
+    <div class="card-footer">商品總計: $ {{ totalAmount }}</div>
   </div>
 </template>
 <script>
-import { mapState } from "vuex";
+import { mapGetters, mapState, mapMutations } from "vuex";
 export default {
   data() {
-    return {};
+    return {
+      oriItemAmount: 0,
+    };
   },
-
+  methods: {
+    setLightBoxItem(product) {
+      //塞lightbox內容
+      this.setCartListLightBoxItem(product);
+    },
+    ...mapMutations(["setCartListLightBoxItem","setOriLightBoxItemAmount"]),
+  },
   computed: {
     ...mapState(["shoppingCart"]),
+    ...mapGetters(["totalAmount"])
   },
 };
 </script>
-<style lang=""></style>
+<style lang="css">
+.li-pointer {
+  cursor: pointer;
+}
+</style>
