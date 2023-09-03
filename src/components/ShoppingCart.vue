@@ -1,42 +1,61 @@
 <template lang="">
   <div id="shopping-cart" class="card">
     <div class="card-header">
-      購物車
+      您的購物車
     </div>
     <div class="card-body">
-      <ul class="list-group">
-        <ul class="list-group list-group-flush">
-          <template v-if="shoppingCart.length > 0">
-            <li
-              v-for="(item, index) in shoppingCart"
-              class="list-group-item d-flex justify-content-between align-items-center li-pointer"
-              :key="index"
-              @click="setLightBoxItem(item)"
-              data-bs-toggle="modal"
-              data-bs-target="#light-box"
-              data-bs-whatever="@mdo"
-            >
-              {{ item.title }} ${{ item.price }}
-              <span class="badge bg-primary rounded-pill">{{
-                item.amount
-              }}</span>
-            </li>
-          </template>
-          <template v-if="shoppingCart.length <= 0">
-            <li
-              class="list-group-item d-flex justify-content-between align-items-center"
-            >
-              目前購物車還是空的，快去挑選喜歡的商品
-            </li>
-          </template>
-        </ul>
-      </ul>
+      <template v-if="shoppingCart.length > 0">
+        <table class="table text-center">
+        <thead>
+          <tr>
+            <th scope="col" width="25%">商品名稱</th>
+            <th scope="col" width="25%">數量</th>
+            <th scope="col" width="15%">單價</th>
+            <th scope="col" width="15%">小計</th>
+            <th scope="col" width="10%"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="(item, index) in shoppingCart">
+            <td>{{ item.title }}</td>
+            <td>
+              <div class="input-group input-group-sm mb-3">
+                <span class="input-group-text pointer" @click="item.amount--"
+                  >-</span
+                >
+                <input
+                  type="number"
+                  class="form-control"
+                  aria-label="Sizing example input"
+                  aria-describedby="inputGroup-sizing-sm"
+                  v-model="item.amount"
+                  style="text-align: center;"
+                  min="1"
+                />
+                <span class="input-group-text pointer" @click="item.amount++"
+                  >+</span
+                >
+              </div>
+            </td>
+            <td>${{ item.price }}{{ item.specId }}{{ shoppingCart.Id }}</td>
+            <td>${{ item.amount * item.price }}</td>
+            <td @click="remove(item.productId, item.productSpecId)">
+              <font-awesome-icon :icon="['far', 'trash-can']" />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </template>
+      <template v-else>
+        目前購物車還是空的，快去挑選喜歡的商品
+      </template>
     </div>
     <div class="card-footer">商品總計: $ {{ totalAmount }}</div>
   </div>
 </template>
 <script>
 import { mapGetters, mapState, mapMutations } from "vuex";
+
 export default {
   data() {
     return {
@@ -44,20 +63,25 @@ export default {
     };
   },
   methods: {
-    setLightBoxItem(product) {
-      //塞lightbox內容
-      this.setCartListLightBoxItem(product);
+    remove(productId, productSpecId) {
+      this.removeFromCart({
+        productId: productId,
+        productSpecId: productSpecId,
+      });
     },
-    ...mapMutations(["setCartListLightBoxItem","setOriLightBoxItemAmount"]),
+    ...mapMutations([
+      "removeFromCart",
+    ]),
   },
   computed: {
     ...mapState(["shoppingCart"]),
-    ...mapGetters(["totalAmount"])
+    ...mapGetters(["totalAmount"]),
   },
 };
 </script>
 <style lang="css">
-.li-pointer {
+.li-pointer,
+.pointer {
   cursor: pointer;
 }
 </style>

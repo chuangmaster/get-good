@@ -24,8 +24,15 @@ export default createStore({
         state.shoppingCart.push(payload);
       }
     },
-    setCartListLightBoxItem(state, payload) {
-      state.lightBoxItem = payload;
+    removeFromCart(state, payload) {
+      const index = state.shoppingCart.findIndex(
+        (x) =>
+          x.productId == payload.productId &&
+          x.productSpecId == payload.productSpecId
+      );
+      if(index>-1){
+        state.shoppingCart.splice(index, 1);
+      }
     },
   },
   getters: {
@@ -35,9 +42,6 @@ export default createStore({
         amount += item.amount * item.price;
       });
       return amount;
-    },
-    lightBoxItem(state) {
-      return state.lightBoxItem;
     },
   },
   actions: {},

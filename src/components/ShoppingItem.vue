@@ -7,7 +7,7 @@
         <p class="card-text">{{ selectCategoryPriceTag }}</p>
         <p class="card-text" v-html="shoppingItem.description"></p>
         <select
-          class="form-select"
+          class="form-select mb-3"
           aria-label="Default select example"
           v-model="selectedSpecId"
         >
@@ -35,6 +35,14 @@ export default {
       selectedSpecId: -1,
       quantity: 1,
     };
+  },
+  mounted() {
+    //顯示預設選項
+    this.shoppingItem.productSpec.forEach((x) => {
+      if (x.isDefalutSelected === true) {
+        this.selectedSpecId = x.specId;
+      }
+    });
   },
   computed: {
     selectSpecNameTag() {
@@ -70,7 +78,7 @@ export default {
   },
   methods: {
     addToCart() {
-      if (this.selectedSpecId=== -1) return;
+      if (this.selectedSpecId === -1) return;
       const item = {
         productId: this.shoppingItem.id,
         productSpecId: this.selectedSpecId,

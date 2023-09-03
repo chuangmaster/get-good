@@ -1,7 +1,7 @@
 <template>
   <div id="app" class="mt-5">
     <div class="container">
-      <div class="col-12">
+      <div class="col-12 text-center">
         <img class="img-fluid" src="./../assets/2023/header01.png" />
         <img class="img-fluid" src="./../assets/2023/header02.png" />
         <img class="img-fluid" src="./../assets/2023/intro01.png" />
@@ -51,7 +51,6 @@
             </button>
           </div>
 
-          <cartListLightBox :lightBoxItem="lightBoxItem"></cartListLightBox>
         </form>
       </div>
     </div>
@@ -89,12 +88,14 @@ export default {
               name: "精選",
               description: "5台斤",
               price: 700,
+              isDefalutSelected: false
             },
             {
               specId: 1,
               name: "精選",
               description: "10台斤",
               price: 1200,
+              isDefalutSelected: true
             },
           ],
         },
@@ -109,12 +110,16 @@ export default {
               name: "特選",
               description: "5台斤",
               price: 420,
+              isDefalutSelected: false
+
             },
             {
               specId: 3,
               name: "特選",
               description: "10台斤",
               price: 780,
+              isDefalutSelected: true
+
             },
           ],
         },
@@ -129,12 +134,16 @@ export default {
               name: "優選",
               description: "5台斤",
               price: 300,
+              isDefalutSelected: false
+
             },
             {
               specId: 5,
               name: "優選",
               description: "10台斤",
               price: 550,
+              isDefalutSelected: true
+
             },
           ],
         },
@@ -208,9 +217,6 @@ export default {
       alert("預購單已送出");
       window.location.reload();
     }
-  },
-  computed: {
-    ...mapGetters(["lightBoxItem"])
   },
 };
 </script>
